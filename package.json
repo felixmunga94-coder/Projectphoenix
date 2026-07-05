@@ -1,0 +1,24 @@
+{
+  "name": "project-phoenix",
+  "version": "1.0.0",
+  "description": "AI-powered live streaming platform.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felixmunga94-coder/ProjectPhoenix.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/felixmunga94-coder/ProjectPhoenix/issues"
+  },
+  "homepage": "https://github.com/felixmunga94-coder/ProjectPhoenix#readme"
+}
