@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/felixmunga94-coder/ProjectPhoenix/issues"
   },
-  "homepage": "https://github.com/felixmunga94-coder/ProjectPhoenix#readme"
+  "homepage": "https://github.com/felixmunga94-coder/ProjectPhoenix#readme",
+  "devDependencies": {
+    "turbo": "^2.10.3"
+  }
 }
