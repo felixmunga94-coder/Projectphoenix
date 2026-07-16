@@ -22,10 +22,15 @@
   },
   "homepage": "https://github.com/felixmunga94-coder/ProjectPhoenix#readme",
   "devDependencies": {
+    "@types/passport-jwt": "^4.0.1",
     "prisma": "6.16.2",
     "turbo": "^2.10.3"
   },
   "dependencies": {
-    "@prisma/client": "6.16.2"
+    "@nestjs/jwt": "^11.0.2",
+    "@nestjs/passport": "^11.0.5",
+    "@prisma/client": "6.16.2",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1"
   }
 }
