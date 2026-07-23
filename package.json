@@ -6,9 +6,15 @@
   "directories": {
     "doc": "docs"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+"prisma": {
+  "schema": "services/api/prisma/schema.prisma"
+},
+ "scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "prisma:generate": "prisma generate",
+  "prisma:migrate": "prisma migrate dev",
+  "prisma:deploy": "prisma migrate deploy"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/felixmunga94-coder/ProjectPhoenix.git"
@@ -34,3 +40,4 @@
     "passport-jwt": "^4.0.1"
   }
 }
+
