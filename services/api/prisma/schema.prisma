@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String   @id @default(cuid())
+  username       String   @unique
+  email          String   @unique
+  password       String
+  role           Role     @default(VIEWER)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  avatar         String?
+  bio            String?
+  coins          Int      @default(0)
+  coverPhoto     String?
+  diamonds       Int      @default(0)
+  displayName    String?
+  followersCount Int      @default(0)
+  followingCount Int      @default(0)
+  verified       Boolean  @default(false)
+  walletBalance  Float    @default(0)
+  streams        Stream[]
+}
+
+model Stream {
+  id          String       @id @default(cuid())
+  title       String
+  description String?
+  thumbnail   String?
+  status      StreamStatus @default(OFFLINE)
+  viewerCount Int          @default(0)
+  hostId      String
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  streamKey   String       @unique @default(cuid())
+  host        User         @relation(fields: [hostId], references: [id])
+}
+
+enum Role {
+  VIEWER
+  CREATOR
+  MODERATOR
+  ADMIN
+}
+
+enum StreamStatus {
+  OFFLINE
+  LIVE
+  ENDED
+}
