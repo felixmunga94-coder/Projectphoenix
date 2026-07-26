@@ -4,6 +4,7 @@ packages:
   - "packages/*"
 
 allowBuilds:
+  '@scarf/scarf': false
   bcrypt: true
   unrs-resolver: false
 

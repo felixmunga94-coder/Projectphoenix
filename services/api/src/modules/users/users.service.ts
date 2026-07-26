@@ -62,12 +62,7 @@ async updateProfile(userId: string, data: UpdateProfileDto) {
     where: {
       id: userId,
     },
-    data: {
-      displayName: data.displayName,
-      bio: data.bio,
-      avatar: data.avatar,
-      coverPhoto: data.coverPhoto,
-    },
+    data,
     select: {
       id: true,
       username: true,
