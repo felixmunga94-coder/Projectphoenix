@@ -25,6 +25,8 @@ model User {
   followingCount Int      @default(0)
   verified       Boolean  @default(false)
   walletBalance  Float    @default(0)
+  followers Follow[] @relation("UserFollowers")
+  following Follow[] @relation("UserFollowing") 
   streams        Stream[]
 }
 
@@ -40,6 +42,23 @@ model Stream {
   updatedAt   DateTime     @updatedAt
   streamKey   String       @unique @default(cuid())
   host        User         @relation(fields: [hostId], references: [id])
+
+}
+
+model Follow {
+  id          String   @id @default(cuid())
+
+  followerId  String
+  followingId String
+
+  follower User @relation("UserFollowing", fields: [followerId], references: [id])
+  following User @relation("UserFollowers", fields: [followingId], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@unique([followerId, followingId])
+  @@index([followerId])
+  @@index([followingId])
 }
 
 enum Role {
