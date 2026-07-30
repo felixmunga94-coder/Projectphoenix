@@ -27,6 +27,7 @@ model User {
   walletBalance  Float    @default(0)
   followers Follow[] @relation("UserFollowers")
   following Follow[] @relation("UserFollowing") 
+  posts          Post[]
   streams        Stream[]
 }
 
@@ -59,6 +60,28 @@ model Follow {
   @@unique([followerId, followingId])
   @@index([followerId])
   @@index([followingId])
+}
+
+model Post {
+  id            String   @id @default(cuid())
+
+  caption       String
+
+  image         String?
+  video         String?
+
+  authorId      String
+
+  author User @relation(fields: [authorId], references: [id])
+
+  likesCount    Int @default(0)
+  commentsCount Int @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([authorId])
+  @@index([createdAt])
 }
 
 enum Role {
