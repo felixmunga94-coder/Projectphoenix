@@ -13,6 +13,7 @@ import { UploadsModule } from './modules/uploads/uploads.module';
 import { FollowsModule } from './modules/follows/follows.module';
 import { PostsModule } from './modules/posts/posts.module';
 import { FeedModule } from './modules/feed/feed.module';
+import { LikesModule } from './modules/likes/likes.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { FeedModule } from './modules/feed/feed.module';
     FollowsModule,
     PostsModule,
     FeedModule,
+    LikesModule,
   ],
   controllers: [AppController],
 })
